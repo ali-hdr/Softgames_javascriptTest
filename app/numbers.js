@@ -5,7 +5,6 @@ define(function () {
     valueAtBit: function (num, bit) {
       var binary = parseInt(num).toString(2);
       var res = parseInt(binary[binary.length - bit]);
-      console.log('num:> ', num, 'bit:> ', bit, 'binary:> ', binary, 'res:> ', res);
       return res;
     },
 
@@ -25,7 +24,6 @@ define(function () {
         if (b < 1) b = b * 10;
         scale = scale * 10;
       }
-      console.log('a>', a, 'b>', b, 'scale>', scale);
       return (a * b) / scale;
     }
   };

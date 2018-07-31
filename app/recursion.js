@@ -3,24 +3,19 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function (require, exports, module) {
 
   exports.listOfFiles = function (data, dirName) {
-    console.log(data.dir, dirName);
     if (!data.files || !Array.isArray(data.files) || data.files.length === 0) return [];
     var res = [];
     data.files.forEach(function (item, indx) {
-      console.log(item, ' typeof item:: ', typeof item);
       if (typeof item === 'string') {
         if (!dirName || data.dir === dirName)
           res.push(item);
       }
       else {
-        console.log('object> ', !dirName || data.dir === dirName);
         var addRes = [];
         if (!dirName || data.dir === dirName)
           addRes = exports.listOfFiles(item);
         else
           addRes = exports.listOfFiles(item, dirName);
-        console.log('addRes >>', addRes);
-        console.log(addRes.join(' **** '));
         res = res.concat(addRes);
       }
     });

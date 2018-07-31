@@ -8,11 +8,9 @@ define(function () {
     },
 
     alterObjects: function (constructor, greeting) {
-      try {
-        var obj = new constructor(greeting);
-        constructor.prototype.greeting = greeting;
-        return obj;
-      } catch (err) { console.log(err); }
+      var obj = new constructor(greeting);
+      constructor.prototype.greeting = greeting;
+      return obj;
     },
 
     iterate: function (obj) {
@@ -21,7 +19,6 @@ define(function () {
         if (obj.hasOwnProperty(p))
           res.push(p + ': ' + obj[p]);
       }
-      console.log(res);
       return res;
     }
   };
