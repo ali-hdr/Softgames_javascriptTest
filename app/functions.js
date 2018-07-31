@@ -20,12 +20,9 @@ define(function () {
     makeClosures: function (arr, fn) {
       var res = [];
       arr.forEach(function (el) {
-        console.log(el);
         var sq = fn(el);
-        console.log('sq:', sq);
         res.push(function () { return sq; });
       });
-      console.log(res.join(' '));
       return res;
     },
 
@@ -33,10 +30,7 @@ define(function () {
       return function (str3) {
         var res = fn(str1, str2);
         res = res.substr(0, res.length - 1);
-        console.log(res);
         res += str3;
-
-        console.log('str1: ', str1, 'str2: ', str2, 'str3:', str3, res);
         return res;
       };
     },
@@ -46,9 +40,7 @@ define(function () {
       for (var i = 0; i < arguments.length; i++) {
         args.push(arguments[i]);
       }
-      console.log(args.join(' -- '));
       var res = args.reduce(function (a, b) { return a + b; });
-      console.log(res);
       return res;
     },
 
@@ -71,7 +63,6 @@ define(function () {
           args2.push(arguments[i]);
         }
         args = args.concat(args2);
-        console.log('args: ', args.join(','));
         var res = fn.apply(null, args);
         return res;
       };
@@ -79,13 +70,6 @@ define(function () {
 
     curryIt: function (fn) {
       return a => b => c => { return fn(a, b, c); }
-      // return function (a) {
-      //   return function (b) {
-      //     return function (c) {
-      //       return fn(a, b, c);
-      //     };
-      //   };
-      // };
     }
   };
 });

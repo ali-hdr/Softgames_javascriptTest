@@ -56,7 +56,6 @@ define(function () {
       var count = {};
       arr.forEach(function (i) { count[i] = (count[i] || 0) + 1; });
       return count[item];
-      ////console.log(count);
     },
 
     duplicates: function (arr) {
@@ -87,7 +86,6 @@ define(function () {
         cntr++;
       }
       while (indx >= 0);
-      //console.log('occ> ', occ.join(' '));
       return occ;
     }
   };
